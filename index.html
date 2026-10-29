@@ -1,198 +1,859 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>VanCoop Auto Detail</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#050607">
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <title>VanCoop Auto Detail | Premium Mobile Detailing</title>
+  <meta name="description" content="Premium mobile auto detailing with meticulous attention to detail. Contact VanCoop Auto Detail for a quote.">
 
-<style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Michroma&display=swap" rel="stylesheet">
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
+  <style>
+    :root {
+      --black: #050607;
+      --black-soft: #0b0e11;
+      --graphite: #14191e;
+      --silver: #c6cdd3;
+      --silver-light: #eef2f5;
+      --muted: #929da6;
+      --cyan: #70d9f5;
+      --line: rgba(112, 217, 245, 0.25);
+      --max-width: 1180px;
+    }
 
-body{
-background:#090909;
-color:white;
-font-family:Inter,sans-serif;
-line-height:1.6;
-}
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-.hero{
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 85px;
+    }
 
-height:100vh;
-display:flex;
-align-items:center;
-justify-content:center;
-text-align:center;
-padding:20px;
-background:linear-gradient(rgba(0,0,0,.65),rgba(0,0,0,.75)),
-url("https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1600&q=80");
-background-size:cover;
-background-position:center;
+    body {
+      background: var(--black);
+      color: var(--silver);
+      font-family: "Inter", sans-serif;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
 
-}
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
-h1{
+    img {
+      max-width: 100%;
+      display: block;
+    }
 
-font-family:"Playfair Display",serif;
-font-size:4rem;
-letter-spacing:3px;
+    .container {
+      width: min(100% - 40px, var(--max-width));
+      margin-inline: auto;
+    }
 
-}
+    .eyebrow {
+      color: var(--cyan);
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      font-size: 0.69rem;
+      font-weight: 600;
+    }
 
-.subtitle{
+    .section-title {
+      font-family: "Michroma", sans-serif;
+      color: var(--silver-light);
+      font-size: clamp(1.45rem, 3.2vw, 2.3rem);
+      font-weight: 400;
+      line-height: 1.5;
+      letter-spacing: 1px;
+      margin: 12px 0 18px;
+    }
 
-color:#b73b3b;
-margin:15px 0;
-font-size:1.2rem;
-letter-spacing:2px;
+    .section-copy {
+      color: var(--muted);
+      max-width: 620px;
+      font-size: 0.96rem;
+    }
 
-}
+    /* Navigation */
 
-.button{
+    header {
+      position: absolute;
+      z-index: 10;
+      top: 0;
+      left: 0;
+      width: 100%;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      background: rgba(5, 6, 7, 0.72);
+      backdrop-filter: blur(14px);
+    }
 
-display:inline-block;
-margin-top:30px;
-padding:15px 35px;
-background:#8b1f1f;
-color:white;
-text-decoration:none;
-border-radius:40px;
-transition:.3s;
+    .nav {
+      min-height: 82px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
 
-}
+    .brand {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.5;
+    }
 
-.button:hover{
+    .brand-name {
+      font-family: "Michroma", sans-serif;
+      font-size: 1.05rem;
+      color: var(--silver-light);
+      letter-spacing: 2px;
+    }
 
-background:#b73b3b;
+    .brand-subtitle {
+      color: var(--cyan);
+      font-size: 0.57rem;
+      letter-spacing: 5px;
+      text-align: center;
+    }
 
-}
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      font-size: 0.8rem;
+      color: var(--silver);
+    }
 
-section{
+    .nav-links a:hover {
+      color: var(--cyan);
+    }
 
-max-width:1000px;
-margin:auto;
-padding:80px 25px;
+    .nav-cta {
+      padding: 10px 17px;
+      border: 1px solid var(--line);
+      transition: 0.25s ease;
+    }
 
-}
+    .nav-cta:hover {
+      background: var(--cyan);
+      color: var(--black) !important;
+    }
 
-h2{
+    /* Hero */
 
-font-family:"Playfair Display",serif;
-font-size:2.2rem;
-margin-bottom:30px;
+    .hero {
+      min-height: 760px;
+      min-height: 100svh;
+      position: relative;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      background:
+        linear-gradient(
+          90deg,
+          rgba(5,6,7,0.97) 0%,
+          rgba(5,6,7,0.82) 46%,
+          rgba(5,6,7,0.30) 100%
+        ),
+        linear-gradient(
+          0deg,
+          var(--black) 0%,
+          transparent 32%
+        ),
+        url("https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=2200&q=85")
+        center 55% / cover no-repeat;
+    }
 
-}
+    .hero::after {
+      content: "";
+      position: absolute;
+      width: 350px;
+      height: 350px;
+      right: -180px;
+      top: 20%;
+      border: 1px solid rgba(112,217,245,0.13);
+      border-radius: 50%;
+      box-shadow:
+        0 0 0 35px rgba(112,217,245,0.025),
+        0 0 0 70px rgba(112,217,245,0.02);
+      pointer-events: none;
+    }
 
-.services{
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      padding-top: 110px;
+      padding-bottom: 90px;
+      max-width: 780px;
+    }
 
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:20px;
+    .hero .eyebrow {
+      margin-bottom: 25px;
+    }
 
-}
+    .hero h1 {
+      font-family: "Michroma", sans-serif;
+      font-weight: 400;
+      text-transform: uppercase;
+      font-size: clamp(2.3rem, 6.4vw, 5.4rem);
+      letter-spacing: -2px;
+      line-height: 1.22;
+      color: var(--silver-light);
+    }
 
-.card{
+    .hero h1 span {
+      display: block;
+      color: var(--silver);
+    }
 
-background:#141414;
-padding:25px;
-border-radius:12px;
-border:1px solid #262626;
+    .hero-description {
+      color: #c0c7cc;
+      max-width: 520px;
+      margin-top: 25px;
+      font-weight: 300;
+      font-size: clamp(0.95rem, 2vw, 1.08rem);
+    }
 
-}
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-top: 35px;
+    }
 
-.contact{
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 49px;
+      padding: 13px 25px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      border: 1px solid transparent;
+      transition: background 0.25s, color 0.25s, border-color 0.25s;
+    }
 
-text-align:center;
+    .button-primary {
+      background: linear-gradient(135deg, #e4e9ed, #aeb9c2);
+      color: #080a0c;
+      border-color: var(--cyan);
+    }
 
-}
+    .button-primary:hover {
+      background: var(--cyan);
+    }
 
-footer{
+    .button-secondary {
+      border-color: rgba(198,205,211,0.4);
+      color: var(--silver-light);
+    }
 
-text-align:center;
-padding:30px;
-color:#777;
+    .button-secondary:hover {
+      border-color: var(--cyan);
+      color: var(--cyan);
+    }
 
-}
+    .hero-footnote {
+      margin-top: 38px;
+      color: #89959e;
+      font-size: 0.7rem;
+      letter-spacing: 1px;
+    }
 
-</style>
+    .hero-footnote span {
+      color: var(--cyan);
+      margin-right: 8px;
+    }
+
+    /* Slim brand divider */
+
+    .accent-line {
+      height: 1px;
+      background: linear-gradient(
+        90deg,
+        transparent,
+        var(--cyan),
+        rgba(198,205,211,0.65),
+        var(--cyan),
+        transparent
+      );
+      opacity: 0.8;
+    }
+
+    /* Services */
+
+    section {
+      padding: 100px 0;
+    }
+
+    .services-section {
+      background:
+        radial-gradient(
+          ellipse at 50% 0%,
+          rgba(112,217,245,0.055),
+          transparent 65%
+        ),
+        var(--black);
+    }
+
+    .section-heading {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .section-heading .section-copy {
+      margin-inline: auto;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .service-card {
+      background: linear-gradient(145deg, #171c21, #0b0d10);
+      border: 1px solid rgba(198,205,211,0.12);
+      padding: 32px 27px;
+      position: relative;
+      transition: transform 0.3s, border-color 0.3s;
+    }
+
+    .service-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--line);
+    }
+
+    .service-number {
+      font-family: "Michroma", sans-serif;
+      font-size: 0.75rem;
+      color: var(--cyan);
+      letter-spacing: 2px;
+    }
+
+    .service-card h3 {
+      margin-top: 23px;
+      margin-bottom: 12px;
+      color: var(--silver-light);
+      font-size: 1.15rem;
+      font-weight: 500;
+    }
+
+    .service-card p {
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
+    .service-rule {
+      margin-top: 28px;
+      width: 42px;
+      height: 1px;
+      background: var(--cyan);
+    }
+
+    /* Brand statement */
+
+    .statement-section {
+      background: var(--black-soft);
+      border-top: 1px solid rgba(255,255,255,0.04);
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+    }
+
+    .statement-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      align-items: center;
+      gap: 70px;
+    }
+
+    .statement-mark {
+      border: 1px solid rgba(112,217,245,0.3);
+      padding: 50px 30px;
+      text-align: center;
+      background:
+        radial-gradient(
+          circle at center,
+          rgba(112,217,245,0.08),
+          transparent 68%
+        );
+    }
+
+    .statement-mark strong {
+      display: block;
+      font-family: "Michroma", sans-serif;
+      color: var(--silver-light);
+      font-size: clamp(1.7rem, 4vw, 2.8rem);
+      font-weight: 400;
+      letter-spacing: 3px;
+    }
+
+    .statement-mark span {
+      display: block;
+      color: var(--cyan);
+      font-size: 0.65rem;
+      letter-spacing: 7px;
+      margin-top: 8px;
+    }
+
+    .statement-mark .mark-rule {
+      width: 75px;
+      height: 1px;
+      background: var(--cyan);
+      margin: 25px auto 0;
+    }
+
+    .statement-copy {
+      margin-bottom: 22px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .values {
+      display: grid;
+      gap: 16px;
+      margin-top: 30px;
+    }
+
+    .value {
+      display: flex;
+      align-items: flex-start;
+      gap: 13px;
+    }
+
+    .value-icon {
+      color: var(--cyan);
+      font-size: 1rem;
+      line-height: 1.7;
+    }
+
+    .value strong {
+      color: var(--silver-light);
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    .value p {
+      color: var(--muted);
+      font-size: 0.83rem;
+    }
+
+    /* Contact */
+
+    .contact-section {
+      position: relative;
+      text-align: center;
+      overflow: hidden;
+      background:
+        radial-gradient(
+          ellipse at center,
+          rgba(112,217,245,0.09),
+          transparent 60%
+        ),
+        var(--black);
+    }
+
+    .contact-inner {
+      max-width: 740px;
+      margin: auto;
+    }
+
+    .contact-inner .section-copy {
+      margin-inline: auto;
+    }
+
+    .phone {
+      display: inline-block;
+      margin: 27px 0 4px;
+      font-size: clamp(1.8rem, 5vw, 3rem);
+      font-weight: 300;
+      letter-spacing: 2px;
+      color: var(--silver-light);
+    }
+
+    .phone:hover {
+      color: var(--cyan);
+    }
+
+    .contact-note {
+      color: var(--muted);
+      font-size: 0.8rem;
+      margin-bottom: 27px;
+    }
+
+    /* Footer */
+
+    footer {
+      background: #030405;
+      border-top: 1px solid var(--line);
+      padding: 35px 0;
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .footer-brand {
+      font-family: "Michroma", sans-serif;
+      color: var(--silver);
+      font-size: 0.8rem;
+      letter-spacing: 2px;
+    }
+
+    .footer-copy {
+      color: #747e86;
+      font-size: 0.72rem;
+    }
+
+    .footer-top {
+      font-size: 0.75rem;
+      color: var(--cyan);
+    }
+
+    .footer-top:hover {
+      color: var(--silver-light);
+    }
+
+    /* Mobile */
+
+    @media (max-width: 800px) {
+      .nav {
+        min-height: 72px;
+      }
+
+      .nav-links {
+        gap: 15px;
+      }
+
+      .nav-links a:not(.nav-cta) {
+        display: none;
+      }
+
+      .hero {
+        min-height: 720px;
+        min-height: 95svh;
+        background-position: 58% center;
+        background-image:
+          linear-gradient(
+            90deg,
+            rgba(5,6,7,0.92),
+            rgba(5,6,7,0.62)
+          ),
+          linear-gradient(
+            0deg,
+            var(--black),
+            transparent 65%
+          ),
+          url("https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1400&q=85");
+        background-size: cover;
+      }
+
+      .hero h1 {
+        letter-spacing: -1px;
+      }
+
+      section {
+        padding: 75px 0;
+      }
+
+      .services-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+      }
+
+      .service-card {
+        padding: 26px;
+      }
+
+      .statement-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .statement-mark {
+        padding: 38px 20px;
+      }
+
+      .footer-inner {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .container {
+        width: min(100% - 30px, var(--max-width));
+      }
+
+      .brand-name {
+        font-size: 0.9rem;
+      }
+
+      .brand-subtitle {
+        letter-spacing: 4px;
+      }
+
+      .nav-cta {
+        padding: 9px 11px;
+        font-size: 0.65rem;
+      }
+
+      .hero-actions {
+        align-items: stretch;
+        flex-direction: column;
+        max-width: 280px;
+      }
+
+      .button {
+        width: 100%;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *, *::before, *::after {
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
 </head>
 
-<body>
+<body id="top">
 
-<div class="hero">
+  <header>
+    <div class="container nav">
+      <a href="#top" class="brand" aria-label="VanCoop Auto Detail home">
+        <span class="brand-name">VanCoop</span>
+        <span class="brand-subtitle">AUTO DETAIL</span>
+      </a>
 
-<div>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#services">Services</a>
+        <a href="#about">Our Standard</a>
+        <a href="#contact" class="nav-cta">Get a Quote</a>
+      </nav>
+    </div>
+  </header>
 
-<h1>VanCoop</h1>
+  <main>
 
-<div class="subtitle">AUTO DETAIL</div>
+    <!-- HERO -->
 
-<p>Luxury Mobile Detailing with Attention to Every Detail.</p>
+    <section class="hero" aria-label="VanCoop Auto Detail introduction">
+      <div class="container">
+        <div class="hero-content">
+          <p class="eyebrow">Precision in every detail</p>
 
-<a href="tel:5614927720" class="button">Call Now</a>
+          <h1>
+            Elevated Care.
+            <span>Exceptional Finish.</span>
+          </h1>
 
-</div>
+          <p class="hero-description">
+            Premium mobile auto detailing for those who appreciate
+            a cleaner finish, thoughtful care, and attention to every detail.
+          </p>
 
-</div>
+          <div class="hero-actions">
+            <a href="#contact" class="button button-primary">
+              Request a Quote
+            </a>
 
-<section>
+            <a href="tel:+15614927720" class="button button-secondary">
+              Call VanCoop
+            </a>
+          </div>
 
-<h2>Services</h2>
+          <p class="hero-footnote">
+            <span>✦</span>
+            PROFESSIONAL CARE. PERSONAL ATTENTION.
+          </p>
+        </div>
+      </div>
+    </section>
 
-<div class="services">
+    <div class="accent-line"></div>
 
-<div class="card">
-<h3>Interior Detail</h3>
-<p>Deep vacuum, steam cleaning, stain treatment, and premium interior finish.</p>
-</div>
+    <!-- SERVICES -->
 
-<div class="card">
-<h3>Exterior Detail</h3>
-<p>Hand wash, wheel cleaning, tire shine, and paint-safe drying.</p>
-</div>
+    <section class="services-section" id="services">
+      <div class="container">
 
-<div class="card">
-<h3>Full Detail</h3>
-<p>Complete interior and exterior transformation for a showroom finish.</p>
-</div>
+        <div class="section-heading">
+          <p class="eyebrow">Our services</p>
+          <h2 class="section-title">Care Without Compromise.</h2>
+          <p class="section-copy">
+            From a refreshed interior to a clean, polished exterior,
+            every service starts with a commitment to doing the job right.
+          </p>
+        </div>
 
-</div>
+        <div class="services-grid">
 
-</section>
+          <article class="service-card">
+            <span class="service-number">01 / INTERIOR</span>
+            <h3>Interior Detailing</h3>
+            <p>
+              Thorough vacuuming, careful surface cleaning, and attention
+              to the areas that make your cabin feel clean and refreshed.
+            </p>
+            <div class="service-rule"></div>
+          </article>
 
-<section>
+          <article class="service-card">
+            <span class="service-number">02 / EXTERIOR</span>
+            <h3>Exterior Detailing</h3>
+            <p>
+              A careful wash, wheel and tire cleaning, and a clean finish
+              designed to bring out your vehicle's best appearance.
+            </p>
+            <div class="service-rule"></div>
+          </article>
 
-<h2>Why VanCoop?</h2>
+          <article class="service-card">
+            <span class="service-number">03 / COMPLETE</span>
+            <h3>Full Detail</h3>
+            <p>
+              Interior and exterior care combined into one comprehensive
+              service for a vehicle that feels refreshed inside and out.
+            </p>
+            <div class="service-rule"></div>
+          </article>
 
-<p>
-We bring premium detailing directly to you using professional-grade products,
-careful techniques, and a luxury-first approach.
-</p>
+        </div>
+      </div>
+    </section>
 
-</section>
+    <div class="accent-line"></div>
 
-<section class="contact">
+    <!-- BRAND STANDARD -->
 
-<h2>Book Your Detail</h2>
+    <section class="statement-section" id="about">
+      <div class="container statement-grid">
 
-<p>Call or Text</p>
+        <div class="statement-mark" aria-label="VanCoop Auto Detail brand">
+          <strong>VanCoop</strong>
+          <span>AUTO DETAIL</span>
+          <div class="mark-rule"></div>
+        </div>
 
-<h1 style="font-size:2.5rem;">561-492-7720</h1>
+        <div>
+          <p class="eyebrow">The VanCoop standard</p>
+          <h2 class="section-title">
+            The Difference Is in the Details.
+          </h2>
 
-<a href="sms:15614927720" class="button">Text for a Quote</a>
+          <p class="statement-copy">
+            Great detailing isn't about rushing through a checklist.
+            It's about taking the time to care for the vehicle and
+            treating every surface with the attention it deserves.
+          </p>
 
-</section>
+          <div class="values">
 
-<footer>
+            <div class="value">
+              <span class="value-icon">✦</span>
+              <div>
+                <strong>Attention to Detail</strong>
+                <p>A careful, methodical approach to every service.</p>
+              </div>
+            </div>
 
-© 2026 VanCoop Auto Detail
+            <div class="value">
+              <span class="value-icon">✦</span>
+              <div>
+                <strong>Convenience at Your Door</strong>
+                <p>Mobile detailing designed around your schedule.</p>
+              </div>
+            </div>
 
+            <div class="value">
+              <span class="value-icon">✦</span>
+              <div>
+                <strong>Professional Results</strong>
+                <p>Quality-focused work with pride in the finished vehicle.</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+
+    <section class="contact-section" id="contact">
+      <div class="container contact-inner">
+
+        <p class="eyebrow">Your vehicle deserves better</p>
+
+        <h2 class="section-title">
+          Ready for a Fresh Finish?
+        </h2>
+
+        <p class="section-copy">
+          Get in touch with VanCoop Auto Detail to discuss your vehicle,
+          the service you need, and a quote tailored to your needs.
+        </p>
+
+        <a class="phone" href="tel:+15614927720">
+          561.492.7720
+        </a>
+
+        <p class="contact-note">
+          Call or text us to request a quote.
+        </p>
+
+        <a
+          class="button button-primary"
+          href="sms:+15614927720?body=Hi%20VanCoop%20Auto%20Detail%2C%20I%27d%20like%20a%20quote."
+        >
+          Text for a Quote
+        </a>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+
+      <div class="footer-brand">VanCoop Auto Detail</div>
+
+      <p class="footer-copy">
+        © <span id="year">2026</span> VanCoop Auto Detail. All rights reserved.
+      </p>
+
+      <a href="#top" class="footer-top">BACK TO TOP ↑</a>
+
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+  </script>
+
+</body>
+</html>
 </footer>
 
 </body>
