@@ -1,0 +1,1 @@
+# vancoop-auto-detail
